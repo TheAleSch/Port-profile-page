@@ -54,7 +54,7 @@ body {
 
 .sec_back {
   position: absolute;
-  background-image: url(/img/back_sec.jpg);
+  background-image: url(img/back_sec.jpg);
   background-size: 80%;
   width: 100vw;
   height: 90vh;
