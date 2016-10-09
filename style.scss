@@ -11,29 +11,25 @@ $h3_color: #3F3F3F;
 //mixins
 
 @mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
-
-
+		-webkit-border-radius: $radius;
+		-moz-border-radius: $radius;
+		-ms-border-radius: $radius;
+				border-radius: $radius;
 }
-@mixin top-straight () {
-	-webkit-clip-path: polygon(0 0, 100% 0, 100% 94%, 0% 100%);
-			clip-path: polygon(0 0, 100% 0, 100% 94%, 0% 100%);
-	}
+
 @mixin padding-blocks (){
 	padding: 75px 35px 0 35px;
 }
 //Extends
+
 .div_basic {
-    @include border-radius($radius_border);
-    background-color: $back_div;
+	@include border-radius($radius_border);
+	background-color: $back_div;
 	-webkit-clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
-	clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+					clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
 	margin-top: -20px;
 	-webkit-filter: drop-shadow (2px 2px 6px rgba(0,0,0,0.5));
-	filter: drop-shadow (2px 2px 6px rgba(0,0,0,0.5));
+					filter: drop-shadow (2px 2px 6px rgba(0,0,0,0.5));
 }
 
 //start styling
@@ -51,10 +47,10 @@ li {
 h1, h2, h3 {
 	font-family: 'Quicksand', sans-serif;
 
-	h3{
-	font-weight: 700;
-	color: $h3_color;
-	}
+		h3{
+			font-weight: 700;
+			color: $h3_color;
+		}
 }
 
 .titles {
@@ -62,77 +58,74 @@ h1, h2, h3 {
 	width: 620px;
 	color: #FFF;
 	margin-top: -37px;
-	h1 {
-		font-size: 70px;
-		margin: 0;
-		padding: 0;
-		font-weight: normal;
-	}
-	h2 {
-		font-size: 28px;
-		font-weight: lighter;
-			.regular {
-				font-weight: 400;
-			
+		h1 {
+			font-size: 70px;
+			margin: 0;
+			padding: 0;
+			font-weight: normal;
 		}
-	}
+		h2 {
+			font-size: 28px;
+			font-weight: lighter;
+				.regular {
+					font-weight: 400;
+				}
+		}
 }
 
-body {  
-    background-color: #d8d8d8;
-    margin: 0;
-    padding: 0;
+body {
+	background-color: #d8d8d8;
+	margin: 0;
+	padding: 0;
 	font-family: 'Open Sans', sans-serif;
 	color: #3f3f3f;
-	
-			p {
+		p {
 			font-family: 'Open Sans', sans-serif;
 			font-size: 14px;
 			}
 }
 .sec_back {
-    position: absolute;
-    background-image: url(img/back_sec.jpg);
-    background-size: 80%;
-    width: 100vw;
-    height: 90vh;
-	z-index: -1;
--webkit-clip-path: polygon(0% 60%,100% 40%,100% 0%,0% 0%);
-clip-path: url("#back_clippath");
+		position: absolute;
+		background-image: url(img/back_sec.jpg);
+		background-size: 80%;
+		width: 100vw;
+		height: 90vh;
+		z-index: -1;
+		-webkit-clip-path: polygon(0% 60%,100% 40%,100% 0%,0% 0%);
+						clip-path: url("#back_clippath");
 }
 
 .container {
-    margin: 10vh auto;
-    padding: auto;
-    width: 960px;
+		margin: 10vh auto;
+		padding: auto;
+		width: 960px;
 }
 .sidebar {
-//	margin-top: -80px;
 	float: left;
 	width: $sidebar_w_size;
-
-	.main_contact {
+		.main_contact {
 		@extend .div_basic;
-		@include top-straight ();
 		height: 650px;
 		width: 100%;
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 94%, 0% 100%);
+						clip-path: polygon(0 0, 100% 0, 100% 94%, 0% 100%);
 			.picture{
-				background-image: url(img/profile_pic.jpg);
-				background-size: 120%;
-				overflow: hidden;
-				height: 380px;
-				width: 100%;
-				-webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-				clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+					background-image: url(img/profile_pic.jpg);
+					background-size: 120%;
+					overflow: hidden;
+					height: 380px;
+					width: 100%;
+					-webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+									clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
 			}
 			.info {
-				padding-left: 35px;
-					h3, p{	
-						color: $h3_color;
-						font-weight: 400;
-				}	
+					padding-left: 35px;
+						h3, p{
+							color: $h3_color;
+							font-weight: 400;
+						}
+			}
 		}
-	}
 			.skill {
 				@extend .div_basic;
 				@include padding-blocks();
@@ -152,18 +145,17 @@ clip-path: url("#back_clippath");
 	width: 620px;
 	height: 100%;
 	margin-top: 20px;
-    @extend .div_basic;
-	@include top-straight ();
+	@extend .div_basic;
 	@include padding-blocks ();
 	padding-top: 20px;
 	padding-bottom: 70px;
 	float: right;
 	-webkit-clip-path: polygon(0 0, 100% 0, 100% 78%, 0% 100%);
 	clip-path: polygon(0 0, 100% 0, 100% 78%, 0% 100%);
-	p {
-		font-size: 16px;
-		font-weight: 100;
-	}
+		p {
+			font-size: 16px;
+			font-weight: 100;
+		}
 }
 
 
