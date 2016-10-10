@@ -2,35 +2,37 @@
 * {box-sizing: border-box;}
 
 // Variables
-
-$font-title:    Helvetica, sans-serif;
+$font-title: 'Quicksand', sans-serif;
+$body-font: 'Open Sans', sans-serif;
 $back_div: #FFF;
 $radius_border: 3px;
 $sidebar_w_size: 310 / 960 * 100%;
 $h3_color: #3F3F3F;
+$main-width: 620 / 960 * 100%;
 //mixins
 
-@mixin border-radius($radius) {
+@mixin border-radius($radius: 3px) {
 		-webkit-border-radius: $radius;
 		-moz-border-radius: $radius;
 		-ms-border-radius: $radius;
 				border-radius: $radius;
 }
 
-@mixin padding-blocks (){
-	padding: 75px 35px 0 35px;
+@mixin clip-path($v1: 0, $v2: 10%, $v3: 100%, $v4: 0, $v5: 100%, $v6: 90%, $v7: 0%, $v8: 100%){
+	-webkit-clip-path: polygon($v1 $v2, $v3 $v4, $v5 $v6, $v7 $v8);
+					clip-path: polygon($v1 $v2, $v3 $v4, $v5 $v6, $v7 $v8);
 }
-//Extends
 
-.div_basic {
-	@include border-radius($radius_border);
-	background-color: $back_div;
-	-webkit-clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
-					clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
-	margin-top: -20px;
-	-webkit-filter: drop-shadow (2px 2px 6px rgba(0,0,0,0.5));
-					filter: drop-shadow (2px 2px 6px rgba(0,0,0,0.5));
+@mixin padding-blocks (){
+	padding: 50px 35px 50px 35px;
 }
+
+//Extends
+%div_basic {
+	@include border-radius();
+	@include clip-path();
+	background-color: $back_div;
+	margin-top: -20px;}
 
 //start styling
 
@@ -40,18 +42,14 @@ ul {
 	padding: 0;
 	margin: 0;
 }
-li {
-
-}
 
 h1, h2, h3 {
-	font-family: 'Quicksand', sans-serif;
-
+	font-family: $font-title;
+}
 		h3{
 			font-weight: 700;
 			color: $h3_color;
 		}
-}
 
 .titles {
 	float: right;
@@ -66,8 +64,8 @@ h1, h2, h3 {
 		}
 		h2 {
 			font-size: 28px;
-			font-weight: lighter;
-				.regular {
+			font-weight: 100;
+			.regular {
 					font-weight: 400;
 				}
 		}
@@ -75,26 +73,24 @@ h1, h2, h3 {
 
 body {
 	background-color: #d8d8d8;
-	margin: 0;
+	margin: 0%;
 	padding: 0;
-	font-family: 'Open Sans', sans-serif;
+	font-family: $body-font;
 	color: #3f3f3f;
-		p {
-			font-family: 'Open Sans', sans-serif;
-			font-size: 14px;
-			}
+	font-size: 16px;
 }
 .sec_back {
 		position: absolute;
 		background-image: url(img/back_sec.jpg);
-		background-size: 80%;
-		width: 100vw;
+		width: 100%;
 		height: 90vh;
 		z-index: -1;
-		-webkit-clip-path: polygon(0% 60%,100% 40%,100% 0%,0% 0%);
-						clip-path: url("#back_clippath");
+		margin-top: -7.7%;
+		@include clip-path(0%, 60%, 100%, 40%, 100%, 0%, 0%, 0%);
 }
-
+.titles-sm {
+	display: none;
+}
 .container {
 		margin: 10vh auto;
 		padding: auto;
@@ -104,19 +100,15 @@ body {
 	float: left;
 	width: $sidebar_w_size;
 		.main_contact {
-		@extend .div_basic;
+		@extend %div_basic;
 		height: 650px;
-		width: 100%;
-		-webkit-clip-path: polygon(0 0, 100% 0, 100% 94%, 0% 100%);
-						clip-path: polygon(0 0, 100% 0, 100% 94%, 0% 100%);
+		@include clip-path(0, 0, 100%, 0, 100%, 94%, 0%, 100%);
 			.picture{
 					background-image: url(img/profile_pic.jpg);
 					background-size: 120%;
 					overflow: hidden;
 					height: 380px;
-					width: 100%;
-					-webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-									clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+					@include clip-path(0, 0, 100%, 0, 100%, 90%, 0%, 100%);
 			}
 			.info {
 					padding-left: 35px;
@@ -127,36 +119,61 @@ body {
 			}
 		}
 			.skill {
-				@extend .div_basic;
+				@extend %div_basic;
 				@include padding-blocks();
-				height: 420px;
-				width: 100%;
+
 			}
 			.softwares {
-				@extend .div_basic;
+				@extend %div_basic;
 				@include padding-blocks();
-				height: 420px;
-				width: 100%;
 			}
 }
-
-
 .content {
-	width: 620px;
+	@extend %div_basic;
+	@include padding-blocks ();
+	@include clip-path(0, 0, 100%, 0, 100%, 78%, 0%, 100%);
+	width: $main-width;
 	height: 100%;
 	margin-top: 20px;
-	@extend .div_basic;
-	@include padding-blocks ();
 	padding-top: 20px;
 	padding-bottom: 70px;
 	float: right;
-	-webkit-clip-path: polygon(0 0, 100% 0, 100% 78%, 0% 100%);
-	clip-path: polygon(0 0, 100% 0, 100% 78%, 0% 100%);
-		p {
-			font-size: 16px;
-			font-weight: 100;
-		}
 }
 
+@media screen and (max-width: 560px) {
+	.sec_back {
+		
+	}
+	.titles-sm {
+		display: block;
+		width: 80%;
+		color: #FFF;
+margin: auto;
+			h1 {
+				font-size: 70px;
+				margin: 0;
+				padding: 0;
+				font-weight: normal;
+			}
+			h2 {
+				font-size: 28px;
+				font-weight: 100;
+				.regular {
+						font-weight: 400;
+					}
+			}
+	}
+	.container{
+		padding: auto;
+		margin: auto;
+		width: 100%;
+	}
+	.sidebar {
+		float: none;
+		margin: 20% auto;
+		width: 80%;
+		font-size: 14px;
+	}
+}
 
-@import 'https://fonts.googleapis.com/css?family=Open+Sans|Quicksand:300,400,700';
+//@import 'https://fonts.googleapis.com/css?family=Open+Sans|Quicksand:300,400,700';
