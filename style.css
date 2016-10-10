@@ -103,16 +103,19 @@ body {
   float: right; }
 
 @media screen and (max-width: 560px) {
+  body {
+    padding-top: 3%;
+    background-color: #da5655; }
+
   .sec_back {
-    height: 130%;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%); }
+    display: none; }
 
   .titles-sm {
     display: block;
     width: 80%;
     color: #FFF;
-    margin: auto; }
+    margin: auto;
+    margin-bottom: -8%; }
     .titles-sm h1 {
       font-size: 70px;
       margin: 0;
