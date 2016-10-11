@@ -88,7 +88,8 @@ body {
 		margin-top: -7.7%;
 		@include clip-path(0%, 60%, 100%, 40%, 100%, 0%, 0%, 0%);
 }
-.titles-sm {
+//Remove mobile parts from the layout
+.titles-sm, .content-sm {
 	display: none;
 }
 .container {
@@ -141,13 +142,25 @@ body {
 }
 
 @media screen and (max-width: 560px) {
+	.titles, .sec_back, .content{
+		display: none;
+	}
 	body {
 		padding-top: 3%;
 		background-color: #da5655;
 	}
-	.sec_back {
-		display: none;
+	.content-sm {
+	display: block;
+	float: none;
+	margin: auto;
+	height: 100%;
+	margin-top: -7%;
+	background-color: $back_div;
+	@include border-radius();
+	@include clip-path();
+	@include padding-blocks();
 	}
+
 	.titles-sm {
 		display: block;
 		width: 80%;

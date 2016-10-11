@@ -59,7 +59,7 @@ body {
   -webkit-clip-path: polygon(0% 60%, 100% 40%, 100% 0%, 0% 0%);
   clip-path: polygon(0% 60%, 100% 40%, 100% 0%, 0% 0%); }
 
-.titles-sm {
+.titles-sm, .content-sm {
   display: none; }
 
 .container {
@@ -103,12 +103,27 @@ body {
   float: right; }
 
 @media screen and (max-width: 560px) {
+  .titles, .sec_back, .content {
+    display: none; }
+
   body {
     padding-top: 3%;
     background-color: #da5655; }
 
-  .sec_back {
-    display: none; }
+  .content-sm {
+    display: block;
+    float: none;
+    margin: auto;
+    height: 100%;
+    margin-top: -7%;
+    background-color: #FFF;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+    padding: 50px 35px 50px 35px; }
 
   .titles-sm {
     display: block;
